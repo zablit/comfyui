@@ -32,7 +32,9 @@
       },
       "widgets_values": [
         "ae.safetensors"
-      ]
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     },
     {
       "id": 220,
@@ -202,7 +204,9 @@
       "widgets_values": [
         "flux1-dev-fp8.safetensors",
         "default"
-      ]
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     },
     {
       "id": 175,
@@ -257,7 +261,11 @@
       "properties": {
         "Node name for S&R": "CLIPTextEncodeFlux"
       },
-      "widgets_values": [],
+      "widgets_values": [
+        "edreinach, black and white, headshot, short hair, dark turtleneck shirt, high contrast lighting, white background",
+        "a black and white headshot of edreinach.\n\nedreinach has short wavy hair. edreinach appears to be wearing a dark, turtleneck shirt.\n\nThe lighting in the photograph is high-contrast, creating deep shadows.This lighting technique adds drama and intensity to the portrait.\n\nThe background is completely white, which serves to isolate the subject and draw full attention to edreinach's face and expression. \n\nThe composition is tightly framed, with edreinach's face filling most of the image. This close cropping emphasizes the details of his features and intensifies the directness of his gaze.\n\nOverall, this portrait conveys a sense of gravitas and character. It appears to be a carefully crafted image that captures the essence of edreinach in a bold and memorable way.",
+        3
+      ],
       "color": "#232",
       "bgcolor": "#353"
     },
@@ -380,35 +388,6 @@
       "widgets_values": {}
     },
     {
-      "id": 230,
-      "type": "SaveImage",
-      "pos": [
-        2450,
-        890
-      ],
-      "size": [
-        220,
-        630
-      ],
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 518
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
       "id": 225,
       "type": "CFGGuider",
       "pos": [
@@ -502,9 +481,125 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        643995584301987,
+        1033513896947270,
         "randomize"
       ]
+    },
+    {
+      "id": 218,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1097.002685546875,
+        897.093994140625
+      ],
+      "size": [
+        211.60000610351562,
+        30
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 516
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            506
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 223,
+      "type": "KSamplerSelect",
+      "pos": [
+        1350,
+        960
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            499
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "ipndm"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 226,
+      "type": "BasicScheduler",
+      "pos": [
+        1360,
+        1070
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 512
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            500
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "beta",
+        25,
+        1
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     },
     {
       "id": 216,
@@ -515,7 +610,7 @@
       ],
       "size": [
         315,
-        786
+        354
       ],
       "flags": {},
       "order": 7,
@@ -575,13 +670,13 @@
         }
       ],
       "properties": {
-        "lora_1": "azablitv4\\azablit-10.safetensors",
+        "lora_1": "azablitv4\\azablit-02.safetensors",
         "strength_model_1": 1,
         "strength_clip_1": 1,
-        "lora_2": "azablitv4\\azablit-11.safetensors",
+        "lora_2": "azablitv4\\azablit-13.safetensors",
         "strength_model_2": 1,
         "strength_clip_2": 1,
-        "lora_3": "azablitv4\\azablit-12.safetensors",
+        "lora_3": "azablitv4\\azablit-18.safetensors",
         "strength_model_3": 1,
         "strength_clip_3": 1,
         "strength_model_4": 1,
@@ -627,145 +722,16 @@
         "lora_9": "azablitv4\\azablit-18.safetensors"
       },
       "widgets_values": [
-        9,
-        "azablitv4\\azablit-10.safetensors",
-        1,
-        1,
-        "azablitv4\\azablit-11.safetensors",
-        1,
-        1,
-        "azablitv4\\azablit-12.safetensors",
+        3,
+        "azablitv4\\azablit-02.safetensors",
         1,
         1,
         "azablitv4\\azablit-13.safetensors",
         1,
         1,
-        "azablitv4\\azablit-14.safetensors",
-        1,
-        1,
-        "azablitv4\\azablit-15.safetensors",
-        1,
-        1,
-        "azablitv4\\azablit-16.safetensors",
-        1,
-        1,
-        "azablitv4\\azablit-17.safetensors",
-        1,
-        1,
         "azablitv4\\azablit-18.safetensors",
         1,
         1
-      ]
-    },
-    {
-      "id": 228,
-      "type": "Seed (rgthree)",
-      "pos": [
-        1080,
-        640
-      ],
-      "size": [
-        235.1999969482422,
-        130
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "SEED",
-          "type": "INT",
-          "links": [
-            508
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "dir": 4
-        }
-      ],
-      "title": "headshot black shirt grey bg",
-      "properties": {
-        "Node name for S&R": "Seed (rgthree)"
-      },
-      "widgets_values": [
-        661386354629603,
-        null,
-        null,
-        null
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 218,
-      "type": "ConditioningZeroOut",
-      "pos": [
-        1097.002685546875,
-        897.093994140625
-      ],
-      "size": [
-        211.60000610351562,
-        30
-      ],
-      "flags": {
-        "collapsed": true
-      },
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 516
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            506
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ConditioningZeroOut"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 223,
-      "type": "KSamplerSelect",
-      "pos": [
-        1350,
-        960
-      ],
-      "size": [
-        210,
-        60
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "SAMPLER",
-          "type": "SAMPLER",
-          "links": [
-            499
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSamplerSelect"
-      },
-      "widgets_values": [
-        "ipndm"
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -782,7 +748,7 @@
         110
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -801,92 +767,15 @@
         816,
         1024,
         1
-      ]
-    },
-    {
-      "id": 226,
-      "type": "BasicScheduler",
-      "pos": [
-        1360,
-        1070
-      ],
-      "size": [
-        210,
-        106
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 512
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            500
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "beta",
-        25,
-        1
       ],
       "color": "#232",
       "bgcolor": "#353"
     },
     {
-      "id": 239,
-      "type": "Reroute",
-      "pos": [
-        1940,
-        1370
-      ],
-      "size": [
-        90.4000015258789,
-        26
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 528
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            541
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": true,
-        "horizontal": false
-      }
-    },
-    {
       "id": 233,
       "type": "XYImage",
       "pos": [
-        2100,
+        2080,
         890
       ],
       "size": [
@@ -945,13 +834,120 @@
       },
       "widgets_values": [
         0,
-        "True",
+        "False",
         "horizontal",
         "False",
         "",
         "",
         ""
       ]
+    },
+    {
+      "id": 239,
+      "type": "Reroute",
+      "pos": [
+        1930,
+        1370
+      ],
+      "size": [
+        90.4000015258789,
+        26
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 528
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            541
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 230,
+      "type": "SaveImage",
+      "pos": [
+        2420,
+        880
+      ],
+      "size": [
+        940,
+        260
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 518
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 228,
+      "type": "Seed (rgthree)",
+      "pos": [
+        1080,
+        640
+      ],
+      "size": [
+        235.1999969482422,
+        130
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": [
+            508
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "dir": 4
+        }
+      ],
+      "title": "headshot black shirt grey bg",
+      "properties": {
+        "Node name for S&R": "Seed (rgthree)"
+      },
+      "widgets_values": [
+        561687996677012,
+        null,
+        null,
+        null
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -1160,10 +1156,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9300534998620033,
+      "scale": 1.2915882266574525,
       "offset": [
-        -959.9732087962057,
-        -597.6679054321862
+        -754.8645463343734,
+        -725.8603462198694
       ]
     }
   },
