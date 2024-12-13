@@ -261,11 +261,7 @@
       "properties": {
         "Node name for S&R": "CLIPTextEncodeFlux"
       },
-      "widgets_values": [
-        "edreinach, black and white, headshot, short hair, dark turtleneck shirt, high contrast lighting, white background",
-        "a black and white headshot of edreinach.\n\nedreinach has short wavy hair. edreinach appears to be wearing a dark, turtleneck shirt.\n\nThe lighting in the photograph is high-contrast, creating deep shadows.This lighting technique adds drama and intensity to the portrait.\n\nThe background is completely white, which serves to isolate the subject and draw full attention to edreinach's face and expression. \n\nThe composition is tightly framed, with edreinach's face filling most of the image. This close cropping emphasizes the details of his features and intensifies the directness of his gaze.\n\nOverall, this portrait conveys a sense of gravitas and character. It appears to be a carefully crafted image that captures the essence of edreinach in a bold and memorable way.",
-        3
-      ],
+      "widgets_values": [],
       "color": "#232",
       "bgcolor": "#353"
     },
